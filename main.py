@@ -6,7 +6,9 @@ from src.display_simulation import MatrixDisplay
 
 m1 = Matrix()
 m2 = Matrix()
-matrices = [m1, m2]
+m3 = Matrix()
+m4 = Matrix()
+matrices = [m1, m2, m3, m4]
 d = MatrixDisplay(matrices)
 
 def animation_spiral(delay=0.2,m=m1):
@@ -21,6 +23,17 @@ def animation_blink(delay=0.5,m=m1):
         time.sleep(delay)
     d.update()
 
+def animation_counter(delay=0.5,m=m1):
+    for _ in count_numbers(m):
+        d.update()
+        time.sleep(delay)
+
+def animation_alphabet(delay=0.5,m=m1):
+    for _ in count_alphabet(m):
+        d.update()
+        time.sleep(delay)
+
+
 running = True
 while running:
     try:
@@ -34,6 +47,10 @@ while running:
                 animation_spiral()
             case "blink":
                 animation_blink()
+            case "count":
+                animation_counter()
+            case "alphabet":
+                animation_alphabet()
             case _:
                 print("  Animación desconocida")
     except Exception as error:
