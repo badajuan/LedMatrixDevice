@@ -172,15 +172,28 @@ while running:
                 animation_time(loop=False)
             case "timer":
                 clear_display()
-                animation_timer(1,10)
+                animation_timer(1,30)
             case "text":
                 clear_display()
                 animation_text(input("Texto a mostrar: "))
-            
+            case "help":
+                print("Opciones disponibles:")
+                print("  fill        - Animación de llenado en espiral")
+                print("  blink       - Parpadeo de la matriz")
+                print("  count       - Contador de números")
+                print("  alphabet    - Animación de letras")
+                print("  characters  - Animación de caracteres especiales")
+                print("  clock       - Reloj en tiempo real (loop)")
+                print("  now         - Hora actual (una vez)")
+                print("  timer       - Temporizador regresivo (1:10)")
+                print("  text        - Mostrar texto personalizado")
+                print("  clear       - Limpiar todas las matrices")
+                print("  quit        - Salir del programa")
+                print("  help        - Mostrar este menú de ayuda")
             case _:
-                #print("  Animación desconocida")
                 clear_display()
                 animation_text(text)
+                        
     except Exception as error:
         print("Error: ", error)
         break
